@@ -13,7 +13,8 @@ function walk_cmd(walk_patern)
             ready_pos = [0 0 20 ; 0 -0 20];
             ready_ang = Cal_Inv_Kine(ready_pos);
             Servo_OutPut(ready_ang,0.05);
-%         case STEP       %Step    
+        case STEP       %Step
+            walk_seq();
 %         case FRONT      %Walk Front
 %         case BACK       %Walk Back
 %         case RIGHT      %Right Turn

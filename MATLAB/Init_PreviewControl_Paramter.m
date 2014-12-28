@@ -30,10 +30,12 @@ function Init_PreviewControl_Paramter()
     [K,P]=dlqr(phi,G,Q,H);
     K=-(H+G'*P*G)^(-1)*G'*P*phi;
 
+    xi = (eye(4,4)-G*(H+G'*P*G)^(-1)*G'*P)*phi;
+    
     %初期値
     x = [0; 0; 0];  %重心x
     y = [0; 0; 0];  %重心y
     xp = x;
     yp = x;
-    save('PreviewControl_Table');
+    save('data/PreviewControl_Table');
 end

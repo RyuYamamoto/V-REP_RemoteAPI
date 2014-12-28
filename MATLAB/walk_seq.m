@@ -10,4 +10,5 @@ function walk_seq(sequence_pattern)
         case RIGHT
         case LEFT
         case STEP
+            
 end
