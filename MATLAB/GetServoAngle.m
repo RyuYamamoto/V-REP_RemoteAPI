@@ -2,7 +2,7 @@
 %引数      ServoID:取得したいサーボのID
 %戻り値    Angle_Value:取得した角度(RemoteAPI上ではラジアンで戻るが角度に直して戻す)
 function Angle_Value = GetServoAngle(ServoID)
-    load('ServoID');
+    load('data/ServoID');
     
     switch ServoID
         case Neck       %首ヨー

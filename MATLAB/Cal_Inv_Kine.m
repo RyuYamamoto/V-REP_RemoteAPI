@@ -3,7 +3,7 @@
 %戻り値    d1:膝ピッチ d2:足首ピッチ d3:股ロール d4:足首ロール d5:股ヨー
 %配列にして返す
 function Target_Angle = Cal_Inv_Kine(target_position)
-    load('ServoID');
+    load('data/ServoID');
     
     %リンクパラメータ
     %ピッチ軸

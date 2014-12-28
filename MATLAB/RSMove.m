@@ -5,7 +5,7 @@ function RSMove(ServoID,Angle)
 
     Angle_Value = Angle * 3.14 / 180;
     
-    load('ServoID');
+    load('data/ServoID');
     
     switch ServoID
         case Neck       %ñƒˆ[

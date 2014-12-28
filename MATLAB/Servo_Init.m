@@ -3,7 +3,7 @@
 %戻り値   無し 
 function Servo_Init(torque)
 %     vrep=remApi('remoteApi');   %DLLファイルの読み込み
-    load('ServoID');            %ワークスペースの読み込み
+    load('data/ServoID');            %ワークスペースの読み込み
     
     %トルクの設定
     vrep.simxSetJointForce(clientID,119,torque,vrep.simx_opmode_oneshot);

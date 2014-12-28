@@ -1,8 +1,8 @@
 %Output Servo Motor function
-%引数    Target_Angle:逆運動学によって算出された角度 Vel:ジョイントを駆動する速度
-%戻り値  なし 
+%param    Target_Angle:Degree for Calculation of IK   Vel:Velocity of move joint
+%return   No 
 function Servo_OutPut(Target_Angle,Vel)
-    load('ServoID');
+    load('data/ServoID');
     
     owari = 0;
     
@@ -88,7 +88,7 @@ end
 %引数
 %戻り値
 function diff = Angle_Diff(Target_Value)
-    load('ServoID');
+    load('data/ServoID');
     
     Angle_Value = Get_Angle_Leg();
     

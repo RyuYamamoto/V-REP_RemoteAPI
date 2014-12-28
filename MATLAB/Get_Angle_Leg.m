@@ -1,5 +1,5 @@
 function Angle = Get_Angle_Leg()
-    load('ServoID');
+    load('data/ServoID');
     
     %‰E‘«
     d1 = GetServoAngle(KneeR_P);

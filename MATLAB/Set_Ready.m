@@ -1,5 +1,5 @@
 function Set_Ready()
-    load('ServoID');
+    load('data/ServoID');
     
     %â∫îºêg
     ReadyPos = [0 0 20 ; 0 0 20];
