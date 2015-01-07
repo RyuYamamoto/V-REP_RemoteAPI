@@ -1,14 +1,14 @@
-function Angle = Get_Angle_Leg()
+Ôªøfunction Angle = Get_Angle_Leg()
     load('data/ServoID');
     
-    %âEë´
+    %Âè≥Ë∂≥
     d1 = GetServoAngle(KneeR_P);
     d2 = GetServoAngle(AnkleR_P);
     d3 = GetServoAngle(HipR_R);
     d4 = GetServoAngle(AnkleR_R);
     d5 = GetServoAngle(HipR_Y);
     
-    %ç∂ë´
+    %Â∑¶Ë∂≥
     d6 = GetServoAngle(KneeL_P);
     d7 = GetServoAngle(AnkleL_P);
     d8 = GetServoAngle(HipL_R);

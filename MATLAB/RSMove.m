@@ -1,6 +1,6 @@
-%Move Servo Motor Function
-%ˆø”     ServoID:ƒT[ƒ{‚ÌID(‚ ‚Ü‚èŠÖŒW‚È‚¢H) Angle:Šp“x(Degree) Vel:Šp‘¬“x(’iŠK‚Å•ª‚¯‚é)
-%–ß‚è’l   –³‚µ 
+ï»¿%Move Servo Motor Function
+%å¼•æ•°     ServoID:ã‚µãƒ¼ãƒœã®ID(ã‚ã¾ã‚Šé–¢ä¿‚ãªã„ï¼Ÿ) Angle:è§’åº¦(Degree) Vel:è§’é€Ÿåº¦(æ®µéšã§åˆ†ã‘ã‚‹)
+%æˆ»ã‚Šå€¤   ç„¡ã— 
 function RSMove(ServoID,Angle)
 
     Angle_Value = Angle * 3.14 / 180;
@@ -8,39 +8,39 @@ function RSMove(ServoID,Angle)
     load('data/ServoID');
     
     switch ServoID
-        case Neck       %ñƒˆ[
+        case Neck       %é¦–ãƒ¨ãƒ¼
             vrep.simxSetJointTargetPosition(clientID,119,Angle_Value,vrep.simx_opmode_oneshot);
-        case ShoulderL  %¶Œ¨ƒsƒbƒ`
+        case ShoulderL  %å·¦è‚©ãƒ”ãƒƒãƒ
             vrep.simxSetJointTargetPosition(clientID,107,Angle_Value,vrep.simx_opmode_oneshot);
-        case ElbowL     %¶Œ¨ƒ[ƒ‹
+        case ElbowL     %å·¦è‚©ãƒ­ãƒ¼ãƒ«
             vrep.simxSetJointTargetPosition(clientID,110,Angle_Value,vrep.simx_opmode_oneshot);
-        case ShoulderR  %‰EŒ¨ƒsƒbƒ`
+        case ShoulderR  %å³è‚©ãƒ”ãƒƒãƒ
             vrep.simxSetJointTargetPosition(clientID,113,Angle_Value,vrep.simx_opmode_oneshot);
-        case ElbowR     %‰EŒ¨ƒ[ƒ‹
+        case ElbowR     %å³è‚©ãƒ­ãƒ¼ãƒ«
             vrep.simxSetJointTargetPosition(clientID,116,Angle_Value,vrep.simx_opmode_oneshot);
-        case HipL_Y     %¶ŒÒƒˆ[
+        case HipL_Y     %å·¦è‚¡ãƒ¨ãƒ¼
             vrep.simxSetJointTargetPosition(clientID,35,Angle_Value,vrep.simx_opmode_oneshot);
-        case HipL_R     %¶ŒÒƒ[ƒ‹
+        case HipL_R     %å·¦è‚¡ãƒ­ãƒ¼ãƒ«
             vrep.simxSetJointTargetPosition(clientID,38,Angle_Value,vrep.simx_opmode_oneshot);
-        case HipL_P     %¶ŒÒƒsƒbƒ`
+        case HipL_P     %å·¦è‚¡ãƒ”ãƒƒãƒ
             vrep.simxSetJointTargetPosition(clientID,41,Angle_Value,vrep.simx_opmode_oneshot);
-        case KneeL_P    %¶•Gƒsƒbƒ`
+        case KneeL_P    %å·¦è†ãƒ”ãƒƒãƒ
             vrep.simxSetJointTargetPosition(clientID,52,Angle_Value,vrep.simx_opmode_oneshot);
-        case AnkleL_P   %¶‘«ñƒsƒbƒ`
+        case AnkleL_P   %å·¦è¶³é¦–ãƒ”ãƒƒãƒ
             vrep.simxSetJointTargetPosition(clientID,58,Angle_Value,vrep.simx_opmode_oneshot);
-        case AnkleL_R   %¶‘«ñƒ[ƒ‹
+        case AnkleL_R   %å·¦è¶³é¦–ãƒ­ãƒ¼ãƒ«
             vrep.simxSetJointTargetPosition(clientID,61,Angle_Value,vrep.simx_opmode_oneshot);
-        case HipR_Y     %‰EŒÒƒˆ[
+        case HipR_Y     %å³è‚¡ãƒ¨ãƒ¼
             vrep.simxSetJointTargetPosition(clientID,71,Angle_Value,vrep.simx_opmode_oneshot);
-        case HipR_R     %‰EŒÒƒ[ƒ‹
+        case HipR_R     %å³è‚¡ãƒ­ãƒ¼ãƒ«
             vrep.simxSetJointTargetPosition(clientID,74,Angle_Value,vrep.simx_opmode_oneshot);
-        case HipR_P     %‰EŒÒƒsƒbƒ`
+        case HipR_P     %å³è‚¡ãƒ”ãƒƒãƒ
             vrep.simxSetJointTargetPosition(clientID,77,Angle_Value,vrep.simx_opmode_oneshot);
-        case KneeR_P    %‰E•Gƒsƒbƒ`
+        case KneeR_P    %å³è†ãƒ”ãƒƒãƒ
             vrep.simxSetJointTargetPosition(clientID,88,Angle_Value,vrep.simx_opmode_oneshot);
-        case AnkleR_P   %‰E‘«ñƒsƒbƒ`
+        case AnkleR_P   %å³è¶³é¦–ãƒ”ãƒƒãƒ
             vrep.simxSetJointTargetPosition(clientID,94,Angle_Value,vrep.simx_opmode_oneshot);
-        case AnkleR_R   %‰E‘«ñƒ[ƒ‹
+        case AnkleR_R   %å³è¶³é¦–ãƒ­ãƒ¼ãƒ«
             vrep.simxSetJointTargetPosition(clientID,97,Angle_Value,vrep.simx_opmode_oneshot);
     end
     

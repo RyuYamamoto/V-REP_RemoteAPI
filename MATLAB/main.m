@@ -1,7 +1,7 @@
-%main m file
+ï»¿%main m file
 close all;clc;
 clear all;
-%ƒ[ƒNƒXƒy[ƒX‚ÉIDİ’è
+%ãƒ¯ãƒ¼ã‚¯ã‚¹ãƒšãƒ¼ã‚¹ã«IDè¨­å®š
 ServoID;
 disp('Program started');
 vrep=remApi('remoteApi');
@@ -27,12 +27,12 @@ i=0;
 while(i~=5)
     straight_pos = [0 30 20 ; 0 30 20];
     straight_ang = Cal_Inv_Kine(straight_pos);
-    Servo_OutPut(straight_ang,0.07);
+    Servo_OutPut(straight_ang,0.06);
     pause(1.5);
 
     straight_pos = [0 -30 20 ; 0 -30 20];
     straight_ang = Cal_Inv_Kine(straight_pos);
-    Servo_OutPut(straight_ang,0.07);
+    Servo_OutPut(straight_ang,0.06);
     pause(1.5);
     
     i=i+1;

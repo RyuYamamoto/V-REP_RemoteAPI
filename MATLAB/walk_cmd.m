@@ -1,4 +1,4 @@
-%Recive walk command
+﻿%Recive walk command
 %param  walk_patern:Motino Pattern
 %return no
 function walk_cmd(walk_patern)
@@ -14,7 +14,7 @@ function walk_cmd(walk_patern)
             ready_ang = Cal_Inv_Kine(ready_pos);
             Servo_OutPut(ready_ang,0.05);
         case STEP       %Step
-            walk_seq();
+            step_seq();
 %         case FRONT      %Walk Front
 %         case BACK       %Walk Back
 %         case RIGHT      %Right Turn
