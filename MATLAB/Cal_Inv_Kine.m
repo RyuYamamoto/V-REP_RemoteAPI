@@ -1,4 +1,4 @@
-﻿%Calulation InvertKinematics function
+%Calulation InvertKinematics function
 %引数      target:目標値xyzの配列 clientID:
 %戻り値    d1:膝ピッチ d2:足首ピッチ d3:股ロール d4:足首ロール d5:股ヨー
 %配列にして返す
@@ -24,8 +24,8 @@ function Target_Angle = Cal_Inv_Kine(target_position)
     
     d1 = -1 * (w1+w3) * 180 / 3.14;    %膝ピッチ
     d2 = -1 * (w1-w3) * 180 / 3.14;    %足首ピッチ
-    d3 = w4 * 180 / 3.14;                            %股ロール
-    d4 = w4 * 180 / 3.14;                            %足首ロール
+    d3 = w4 * 180 / 3.14;              %股ロール
+    d4 = w4 * 180 / 3.14;              %足首ロール
     d5 = 0;                            %股ヨー
     
     %左足
@@ -36,9 +36,9 @@ function Target_Angle = Cal_Inv_Kine(target_position)
     
     d6 = (w5+w7) * 180 / 3.14;         %膝ピッチ
     d7 = (w5-w7) * 180 / 3.14;         %足首ピッチ
-    d8 = w8 * 180 / 3.14;                            %股ロール
-    d9 = w8 * 180 / 3.14;                           %足首ロール
-    d10 = 0;                            %股ヨー
+    d8 = w8 * 180 / 3.14;              %股ロール
+    d9 = w8 * 180 / 3.14;              %足首ロール
+    d10 = 0;                           %股ヨー
     
     Target_Angle = [d1 d2 d3 d4 d5  d6 d7 d8 d9 d10];
 end
