@@ -1,4 +1,4 @@
-﻿function [Preview_Foot_x , Preview_Foot_y] = create_foot_p(foot_point)
+function [Preview_Foot_x , Preview_Foot_y] = create_foot_p(foot_point)
     load('data/PreviewControl_Table');
     
     i = 1;

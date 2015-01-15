@@ -1,7 +1,7 @@
-﻿%main m file
+%main m file
 close all;clc;
 clear all;
-%ワークスペースにID設定
+
 ServoID;
 disp('Program started');
 vrep=remApi('remoteApi');
