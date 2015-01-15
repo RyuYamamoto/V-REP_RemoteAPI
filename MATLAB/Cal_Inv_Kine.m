@@ -1,7 +1,7 @@
 %Calulation InvertKinematics function
 %param      tar_cog:COG Trajectory  tar_zmp:Target ZMP
 %return     cog_angle:angle from OCG  zmp_angle:angle fromZMP
-function [cog_angle,zmp_angle] = Cal_Inv_Kine(tar_cog,tar_zmp)
+function [cog_angle,zmp_angle] = Cal_Inv_Kine(cog_x,cog_y,output_zmp_x,output_zmp_y)
     load('data/ServoID');
     
     %Link Parameter
@@ -16,8 +16,8 @@ function [cog_angle,zmp_angle] = Cal_Inv_Kine(tar_cog,tar_zmp)
     
     %Invert Kinematics
     %Using Center of Gravity
-	g1 = atan(tar_cog(2)/(L-L3));		%hip roll
-	g2 = atan(tar_cog(2)/(L-L3));		%foot roll
+	g1 = atan(cog_y/(L-L3));		%hip roll
+	g2 = atan(cog_y/(L-L3));		%foot roll
 	cog_angle = [g1 g2];
 
 	%Using ZMP

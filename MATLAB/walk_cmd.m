@@ -14,7 +14,7 @@ function walk_cmd(walk_patern)
             ready_ang = Cal_Inv_Kine(ready_pos);
             Servo_OutPut(ready_ang,0.05);
         case STEP       %Step
-            zmp_p = [0 0 0;0.05 0 44;0.1 0 -44;0.15 0 44;0.2 0 -44;0.2 0 44;0.25 0 -44;0.3 0 44;100 0 0];   %Goal Foot Position
+            zmp_p = [0 0 0;0.5 0 44;1 0 -44;1.5 0 44;2 0 -44;2.5 0 44;3 0 -44;3.5 0 44;4 0 0;100 0 0];   %Goal Foot Position
             motion_seq(zmp_p);
 %         case FRONT      %Walk Front
 %         case BACK       %Walk Back

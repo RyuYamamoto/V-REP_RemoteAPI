@@ -1,4 +1,4 @@
-ï»¿%Output Servo Motor function
+%Output Servo Motor function
 %param    Target_Angle:Degree for Calculation of IK   Vel:Velocity of move joint
 %return   No 
 function Servo_OutPut(Target_Angle,Vel)
@@ -6,10 +6,10 @@ function Servo_OutPut(Target_Angle,Vel)
     
     owari = 0;
     
-    %è¶³ã®ç¾åœ¨è§’åº¦ã‚’å–å¾—(ä¸¡è¶³)
+    %‘«‚ÌŒ»İŠp“x‚ğæ“¾(—¼‘«)
     Angle_Value = Get_Angle_Leg();
     
-    %åˆæœŸå€¤ã¨ã—ã¦ä»£å…¥
+    %‰Šú’l‚Æ‚µ‚Ä‘ã“ü
     old_angle1 = Angle_Value(1);
     old_angle2 = Angle_Value(2);
     old_angle3 = Angle_Value(3);
@@ -21,15 +21,15 @@ function Servo_OutPut(Target_Angle,Vel)
     old_angle9 = Angle_Value(9);
     old_angle10 = Angle_Value(10);
     
-    %ãƒ«ãƒ¼ãƒ—
+    %ƒ‹[ƒv
     while(owari ~= 1)
-        %ç¾åœ¨è§’åº¦ã¨ç›®æ¨™è§’åº¦ã®å·®åˆ†ã‚’å–å¾—
+        %Œ»İŠp“x‚Æ–Ú•WŠp“x‚Ì·•ª‚ğæ“¾
         diff = Angle_Diff(Target_Angle);
         
-        %ã‚¹ãƒ†ãƒƒãƒ—å¹…ã‚’å–å¾—(1,-1,0)
+        %ƒXƒeƒbƒv•‚ğæ“¾(1,-1,0)
         step = Dec_Step(diff);
         
-        %è§’åº¦ã‚’ï¼‘ã‚¹ãƒ†ãƒƒãƒ—é€²ã‚ã‚‹
+        %Šp“x‚ğ‚PƒXƒeƒbƒvi‚ß‚é
         angle1 = old_angle1 + step(1);
         angle2 = old_angle2 + step(2);
         angle3 = old_angle3 + step(3);
@@ -41,24 +41,24 @@ function Servo_OutPut(Target_Angle,Vel)
         angle9 = old_angle9 + step(9);
         angle10 = old_angle10 + step(10);
         
-        %ã‚¸ãƒ§ã‚¤ãƒ³ãƒˆã‚’é§†å‹•
+        %ƒWƒ‡ƒCƒ“ƒg‚ğ‹ì“®
         vrep.simxPauseCommunication(clientID,1);
-        RSMove(KneeR_P,angle1);    %å·¦è†ãƒ”ãƒƒãƒ
-        RSMove(AnkleR_P,angle2);   %å·¦è¶³é¦–ãƒ”ãƒƒãƒ
-        RSMove(HipR_R,angle3)     %å·¦è‚¡ãƒ­ãƒ¼ãƒ«
-        RSMove(AnkleR_R,angle4);     %å·¦è¶³é¦–ãƒ­ãƒ¼ãƒ«
-        RSMove(HipR_Y,angle5);     %å·¦è‚¡ãƒ¨ãƒ¼
-        RSMove(KneeL_P,angle6);    %å·¦è†ãƒ”ãƒƒãƒ
-        RSMove(AnkleL_P,angle7);   %å·¦è¶³é¦–ãƒ”ãƒƒãƒ
-        RSMove(HipL_R,angle8);     %å·¦è‚¡ãƒ­ãƒ¼ãƒ«
-        RSMove(AnkleL_R,angle9);     %å·¦è¶³é¦–ãƒ­ãƒ¼ãƒ«
-        RSMove(HipL_Y,angle10);     %å·¦è‚¡ãƒ¨ãƒ¼
+        RSMove(KneeR_P,angle1);    %¶•Gƒsƒbƒ`
+        RSMove(AnkleR_P,angle2);   %¶‘«ñƒsƒbƒ`
+        RSMove(HipR_R,angle3)     %¶ŒÒƒ[ƒ‹
+        RSMove(AnkleR_R,angle4);     %¶‘«ñƒ[ƒ‹
+        RSMove(HipR_Y,angle5);     %¶ŒÒƒˆ[
+        RSMove(KneeL_P,angle6);    %¶•Gƒsƒbƒ`
+        RSMove(AnkleL_P,angle7);   %¶‘«ñƒsƒbƒ`
+        RSMove(HipL_R,angle8);     %¶ŒÒƒ[ƒ‹
+        RSMove(AnkleL_R,angle9);     %¶‘«ñƒ[ƒ‹
+        RSMove(HipL_Y,angle10);     %¶ŒÒƒˆ[
         vrep.simxPauseCommunication(clientID,0);
 
-        %Velåˆ†ã ã‘ã‚¦ã‚§ã‚¤ãƒˆ
+        %Vel•ª‚¾‚¯ƒEƒFƒCƒg
         pause(Vel);
         
-        %è§’åº¦ã‚’æ ¼ç´
+        %Šp“x‚ğŠi”[
         old_angle1 = angle1;
         old_angle2 = angle2;
         old_angle3 = angle3;
@@ -71,7 +71,7 @@ function Servo_OutPut(Target_Angle,Vel)
         old_angle10 = angle10;
         
         zero = 0;
-        %çµ‚äº†æ¡ä»¶ã®åˆ¤å®š
+        %I—¹ğŒ‚Ì”»’è
         for i=1:1:10
             if(step(i) == 0)
                 zero = zero + 1;
@@ -84,22 +84,22 @@ function Servo_OutPut(Target_Angle,Vel)
     end
 end
 
-%ç¾åœ¨è§’åº¦ã¨ç›®æ¨™è§’åº¦ã®å·®åˆ†ã‚’å–ã‚Šã€ç›®æ¨™è§’ã«åˆ°é”ã—ã¦ã‚‹ã‹ã‚’åˆ¤æ–­
-%å¼•æ•°
-%æˆ»ã‚Šå€¤
+%Œ»İŠp“x‚Æ–Ú•WŠp“x‚Ì·•ª‚ğæ‚èA–Ú•WŠp‚É“’B‚µ‚Ä‚é‚©‚ğ”»’f
+%ˆø”
+%–ß‚è’l
 function diff = Angle_Diff(Target_Value)
     load('data/ServoID');
     
     Angle_Value = Get_Angle_Leg();
     
-    %å³è¶³
+    %‰E‘«
     df1 = Target_Value(1) - Angle_Value(1);
     df2 = Target_Value(2) - Angle_Value(2);
     df3 = Target_Value(3) - Angle_Value(3);
     df4 = Target_Value(4) - Angle_Value(4);
     df5 = Target_Value(5) - Angle_Value(5);
     
-    %å·¦è¶³
+    %¶‘«
     df6 = Target_Value(6) - Angle_Value(6);
     df7 = Target_Value(7) - Angle_Value(7);
     df8 = Target_Value(8) - Angle_Value(8);
@@ -109,9 +109,9 @@ function diff = Angle_Diff(Target_Value)
     diff = [df1 df2 df3 df4 df5 df6 df7 df8 df9 df10];
 end
 
-%ç¾åœ¨è§’åº¦ã¨ç›®æ¨™è§’ã®å·®åˆ†ã‹ã‚‰stepå¹…ã‚’æ±ºã‚ã‚‹
-%å¼•æ•°
-%æˆ»ã‚Šå€¤
+%Œ»İŠp“x‚Æ–Ú•WŠp‚Ì·•ª‚©‚çstep•‚ğŒˆ‚ß‚é
+%ˆø”
+%–ß‚è’l
 function step = Dec_Step(diff)
     i=1;
     step = [0 0 0 0 0 0 0 0 0 0 ];
