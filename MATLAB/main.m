@@ -33,6 +33,9 @@ walk_cmd(STRAIGHT);
 walk_cmd(READY);
 %---------------------------
 
+disp('Walk command transmit.');
+walk_cmd(STEP);
+
 %----------------------------
 %--------Program End.--------
 vrep.simxFinish(clientID);

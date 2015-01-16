@@ -1,6 +1,6 @@
 function Init_PreviewControl_Paramter()
     pc_time=1;          %予見幅
-    calc_time=8;        %歩行パターンの生成時間
+    calc_time=10;        %歩行パターンの生成時間
     sample_time=0.01;   %サンプリングタイム
     center_z=270;      %重心位置(z軸)(Acceliteは0.27m)
     g=-9810;            %重力加速度
@@ -33,9 +33,9 @@ function Init_PreviewControl_Paramter()
     xi = (eye(4,4)-G*(H+G'*P*G)^(-1)*G'*P)*phi;
     
     %初期値
-    x = [0; 0; 0];  %重心x
-    y = [0; 0; 0];  %重心y
-    xp = x;
-    yp = x;
+%     x = [0; 0; 0];  %重心x
+%     y = [0; 0; 0];  %重心y
+%     xp = x;
+%     yp = y;
     save('data/PreviewControl_Table');
 end
