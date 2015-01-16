@@ -54,8 +54,7 @@ function [cog_x,cog_y,output_zmp_x,output_zmp_y] = calc_preview_control(foot_p_x
         y = A_d * y + B_d * uy+E_d * dy * sample_time;     %重心軌道(y方向)
         
         cog_x(count) = x(1);       %重心軌道
-        cog_y(count) = y(1);
-        fprintf('%f\n',y(1));
+        cog_y(count) = y(1));
         output_zmp_x(count) = px;  %出力ZMP
         output_zmp_y(count) = py;
     end
