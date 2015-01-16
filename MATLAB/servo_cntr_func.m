@@ -6,19 +6,19 @@ function servo_cntr_func(cog_x,cog_y,output_zmp_x,output_zmp_y)
     i=1;
     while(1)
         %Calculation Invert Kinematics
-        [cog_angle,zmp_angle] = Cal_Inv_Kine(cog_x(i),cog_y(i),output_zmp_x(i),output_zmp_y(i));
+        [cog_angle,zmp_angle] = cal_inv_kine_pc(cog_x(i),cog_y(i),output_zmp_x(i),output_zmp_y(i),output_zmp_z);
         
         %Servo Control Start
         vrep.simxPauseCommunication(clientID,1);
         
-        RSMove(KneeR_P,zmp_angle(1));    %右膝ピッチ
-        RSMove(AnkleR_P,zmp_angle(2));   %右足首ピッチ
+%         RSMove(KneeR_P,zmp_angle(1));    %右膝ピッチ
+%         RSMove(AnkleR_P,zmp_angle(2));   %右足首ピッチ
         RSMove(HipR_R,cog_angle(1))      %右股ロール
         RSMove(AnkleR_R,cog_angle(2));   %右足首ロール
         %RSMove(HipR_Y,angle5);          %右股ヨー
         
-        RSMove(KneeL_P,zmp_angle(1));    %左膝ピッチ
-        RSMove(AnkleL_P,zmp_angle(2));   %左足首ピッチ
+%         RSMove(KneeL_P,zmp_angle(1));    %左膝ピッチ
+%         RSMove(AnkleL_P,zmp_angle(2));   %左足首ピッチ
         RSMove(HipL_R,cog_angle(1));     %左股ロール
         RSMove(AnkleL_R,cog_angle(2));   %左足首ロール
         %RSMove(HipL_Y,angle10);         %左股ヨー

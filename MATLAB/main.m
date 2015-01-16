@@ -8,14 +8,15 @@ vrep=remApi('remoteApi');
 vrep.simxFinish(-1);
 clientID=vrep.simxStart('127.0.0.1',19999,true,true,5000,5);
 pause(1);
-
 load('data/Motion');
 disp('Initialize Servo Motor...');
 Servo_Init(480);
 pause(2);
+disp('Straight mode...');
 walk_cmd(STRAIGHT);
 
 disp('Set Ready Mode...');
+pause(1);
 walk_cmd(READY);
 pause(1);
 
@@ -26,12 +27,12 @@ pause(3);
 i=0;
 while(i~=5)
     straight_pos = [0 30 20 ; 0 30 20];
-    straight_ang = Cal_Inv_Kine(straight_pos);
+    straight_ang = cal_inv_kine(straight_pos);
     Servo_OutPut(straight_ang,0.06);
     pause(1.5);
 
     straight_pos = [0 -30 20 ; 0 -30 20];
-    straight_ang = Cal_Inv_Kine(straight_pos);
+    straight_ang = cal_inv_kine(straight_pos);
     Servo_OutPut(straight_ang,0.06);
     pause(1.5);
     

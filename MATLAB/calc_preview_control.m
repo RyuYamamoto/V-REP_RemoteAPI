@@ -1,5 +1,6 @@
 function [cog_x,cog_y,output_zmp_x,output_zmp_y] = calc_preview_control(foot_p_x,foot_p_y)
     load('data/PreviewControl_Table');
+    load('data/walk_paramter_table');
     
     x = [0;0;0];
     y = [0;0;0];
@@ -24,7 +25,7 @@ function [cog_x,cog_y,output_zmp_x,output_zmp_y] = calc_preview_control(foot_p_x
             j = j + 1;
             if (foot_p_x(i+j) - foot_p_x(i+j-1)) ~= 0
                 f  = -(H+G'*P*G)^(-1)*G'*(xi')^(j-1)*P*GR;          %ZMPフィードフォワード項(今回のはロボット座標における足先目標位置)
-                %fd = -(H+G'*P*G)^(-1)*(xi')^j*P*G_d;                %外乱フィードフォワード項
+                %fd = -(H+G'*P*G)^(-1)*(xi')^j*P*G_d;               %外乱フィードフォワード項
                 dux = dux + f * (foot_p_x(i+j) - foot_p_x(i+j-1));  
             end
         end
@@ -36,7 +37,7 @@ function [cog_x,cog_y,output_zmp_x,output_zmp_y] = calc_preview_control(foot_p_x
             j = j + 1;
             if (prefy(i+j) - prefy(i+j-1)) ~= 0
                 f  = -(H+G'*P*G)^(-1)*G'*(xi')^(j-1)*P*GR;          %ZMPフィードフォワード項(今回のはロボット座標における足先目標位置)
-                %fd = -(H+G'*P*G)^(-1)*G'*(xi')^j*P*G_d;             %外乱フィードフォワード項
+                %fd = -(H+G'*P*G)^(-1)*G'*(xi')^j*P*G_d;            %外乱フィードフォワード項
                 duy = duy + f * (prefy(i+j) - prefy(i+j-1));
             end
         end

@@ -1,51 +1,44 @@
 %Calulation InvertKinematics function
-%param      tar_cog:COG Trajectory  tar_zmp:Target ZMP
-%return     cog_angle:angle from OCG  zmp_angle:angle fromZMP
-function [cog_angle,zmp_angle] = Cal_Inv_Kine(cog_x,cog_y,output_zmp_x,output_zmp_y)
-    load('data/walk_parameter_table');
+%引数      target:目標値xyzの配列 clientID:
+%戻り値    d1:膝ピッチ d2:足首ピッチ d3:股ロール d4:足首ロール d5:股ヨー
+%配列にして返す
+function Target_Angle = cal_inv_kine(target_position)
+    load('data/ServoID');
     
-    %Link Parameter
+    %リンクパラメータ
+    %ピッチ軸
     L0  = 41;
     L1  = 105;
     L12 = 41;
     L2  = 105;
     L3  = 43.5;
     
-    %Leg Length
     L   = L0 + L1 + L12 + L2 + L3;
     
-    %Invert Kinematics
-    
-    %Using Center of Gravity
-	g1 = atan(cog_y/(L-L3));		%hip roll
-	g2 = atan(cog_y/(L-L3));		%foot roll
-	cog_angle = [g1 g2];
-
-	%Using ZMP
-    w1 = atan2(tar_zmp(1,1),L-tar_zmp(1,3)-L3-L0);
-    w2 = sqrt(tar_zmp(1,1)^2+tar_zmp(1,2)^2+(L-tar_zmp(1,3)-L3-L0)^2);
+    %逆運動学計算
+    %右足
+    w1 = atan2(target_position(1,1),L-target_position(1,3)-L3-L0);
+    w2 = sqrt(target_position(1,1)^2+target_position(1,2)^2+(L-target_position(1,3)-L3-L0)^2);
     w3 = acos((w2-L12)/(2*L1));
-    w4 = atan(tar_zmp(1,2)/(L-tar_zmp(1,3)-L3-L0));
+    w4 = atan(target_position(1,2)/(L-target_position(1,3)-L3-L0));
     
-    %right leg
-    z1 = -1 * (w1+w3) * 180 / 3.14;    %knee pitch
-    z2 = -1 * (w1-w3) * 180 / 3.14;    %foot pitch
-    %z3 = w4 * 180 / 3.14;              %hip roll
-    %z4 = w4 * 180 / 3.14;              %foot roll
-    %z5 = 0;                            %hip yaw
+    d1 = -1 * (w1+w3) * 180 / 3.14;    %膝ピッチ
+    d2 = -1 * (w1-w3) * 180 / 3.14;    %足首ピッチ
+    d3 = w4 * 180 / 3.14;                            %股ロール
+    d4 = w4 * 180 / 3.14;                            %足首ロール
+    d5 = 0;                            %股ヨー
     
-    %left leg
-    w5 = atan2(tar_zmp(2,1),L-tar_zmp(2,3)-L3-L0);
-    w6 = sqrt(tar_zmp(2,1)^2+tar_zmp(2,2)^2+(L-tar_zmp(2,3)-L3-L0)^2);
+    %左足
+    w5 = atan2(target_position(2,1),L-target_position(2,3)-L3-L0);
+    w6 = sqrt(target_position(2,1)^2+target_position(2,2)^2+(L-target_position(2,3)-L3-L0)^2);
     w7 = acos((w6-L12)/(2*L1));
-    w8 = atan(tar_zmp(2,2)/(L-tar_zmp(2,3)-L3-L0));
+    w8 = atan(target_position(2,2)/(L-target_position(2,3)-L3-L0));
     
-    z6 = (w5+w7) * 180 / 3.14;         %knee pitch
-    z7 = (w5-w7) * 180 / 3.14;         %foot pitch
-    %z8 = w8 * 180 / 3.14;              %hip roll
-    %z9 = w8 * 180 / 3.14;              %foot roll
-    %z10 = 0;                           %hip yaw
+    d6 = (w5+w7) * 180 / 3.14;         %膝ピッチ
+    d7 = (w5-w7) * 180 / 3.14;         %足首ピッチ
+    d8 = w8 * 180 / 3.14;                            %股ロール
+    d9 = w8 * 180 / 3.14;                           %足首ロール
+    d10 = 0;                            %股ヨー
     
-    zmp_angle = [z1 z2 z6 z7];
-    %zmp_angle = [z1 z2 z3 z4 z5  z6 z7 z8 z9 z10];
+    Target_Angle = [d1 d2 d3 d4 d5  d6 d7 d8 d9 d10];
 end
