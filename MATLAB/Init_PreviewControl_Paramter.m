@@ -2,9 +2,6 @@ function Init_PreviewControl_Paramter()
     pc_time=1;          %予見幅
     calc_time=8;        %歩行パターンの生成時間
     sample_time=0.01;   %サンプリングタイム
-    period=0.01;        %歩行計算周期
-    lift_leg_time = 0.5; %遊脚を生成する時間
-    up_leg_length = 45; %足上げ量
     center_z=270;      %重心位置(z軸)(Acceliteは0.27m)
     g=-9810;            %重力加速度
 
