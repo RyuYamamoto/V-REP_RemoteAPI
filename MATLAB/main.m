@@ -1,42 +1,40 @@
-%main m file
+%|------------------------|
+%|-@file    main.m        |
+%|-@brief   Main Program  |
+%|-@date    2015.1.23     |
+%|-@author  Ryu Yamamoto  |
+%|------------------------|
+
+%-----------------------------------------------------------
+%---------------------Simulator Setting---------------------
+%-----------------------------------------------------------
 close all;clc;
 clear all;
-
-ServoID;
 disp('Program started');
 vrep=remApi('remoteApi');
 vrep.simxFinish(-1);
 clientID=vrep.simxStart('127.0.0.1',19999,true,true,5000,5);
 pause(1);
+%-----------------------------------------------------------
+
+%----------------------
+%----Load Mat files----
+%----------------------
+load('data/ServoID');
 load('data/Motion');
-disp('Initialize Servo Motor...');
+%----------------------
+
+%---------------------------
+%-Robot Status Initilaizing-
+%---------------------------
 Servo_Init(480);
 pause(2);
-disp('Straight mode...');
 walk_cmd(STRAIGHT);
-
-disp('Set Ready Mode...');
-pause(1);
 walk_cmd(READY);
-pause(1);
+%---------------------------
 
-% Set_Ready();
-RSMove(ElbowR,10);
-RSMove(ElbowL,-10);
-pause(3);
-i=0;
-while(i~=5)
-    straight_pos = [0 30 20 ; 0 30 20];
-    straight_ang = cal_inv_kine(straight_pos);
-    Servo_OutPut(straight_ang,0.06);
-    pause(1.5);
-
-    straight_pos = [0 -30 20 ; 0 -30 20];
-    straight_ang = cal_inv_kine(straight_pos);
-    Servo_OutPut(straight_ang,0.06);
-    pause(1.5);
-    
-    i=i+1;
-end
-vrep.simxFinish(clientID); % close the line if still open
-vrep.delete(); % call the destructor!
+%----------------------------
+%--------Program End.--------
+vrep.simxFinish(clientID);
+vrep.delete();
+%----------------------------
