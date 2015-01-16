@@ -1,4 +1,4 @@
-%Calulation InvertKinematics function
+%Calulation InvertKinematics using Preview Control(COG) function
 %param      tar_cog:COG Trajectory  tar_zmp:Target ZMP
 %return     cog_angle:angle from OCG  zmp_angle:angle fromZMP
 function [cog_angle,zmp_angle] = cal_inv_kine_pc(cog_x,cog_y,output_zmp_x,output_zmp_y)
