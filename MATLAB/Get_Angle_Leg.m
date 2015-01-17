@@ -1,4 +1,4 @@
-﻿function Angle = Get_Angle_Leg()
+function Angle = Get_Angle_Leg()
     load('data/ServoID');
     
     %右足

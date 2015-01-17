@@ -1,41 +1,41 @@
-ï»¿function Init_PreviewControl_Paramter()
-    pc_time=1;          %äºˆè¦‹å¹…
-    calc_time=8;        %æ­©è¡Œãƒ‘ã‚¿ãƒ¼ãƒ³ã®ç”Ÿæˆæ™‚é–“
-    sample_time=0.01;   %ã‚µãƒ³ãƒ—ãƒªãƒ³ã‚°ã‚¿ã‚¤ãƒ 
-    center_z=0.27;      %é‡å¿ƒä½ç½®(zè»¸)(Acceliteã¯0.27m)
-    g=-9.81;            %é‡åŠ›åŠ é€Ÿåº¦
+function Init_PreviewControl_Paramter()
+    pc_time=1;          %—\Œ©•
+    calc_time=10;        %•àsƒpƒ^[ƒ“‚Ì¶¬ŠÔ
+    sample_time=0.01;   %ƒTƒ“ƒvƒŠƒ“ƒOƒ^ƒCƒ€
+    center_z=270;      %dSˆÊ’u(z²)(Accelite‚Í0.27m)
+    g=-9810;            %d—Í‰Á‘¬“x
 
-    %ã‚·ã‚¹ãƒ†ãƒ ã®ä¿‚æ•°è¡Œåˆ—
+    %ƒVƒXƒeƒ€‚ÌŒW”s—ñ
     A=[0 1 0;0 0 1;0 0 0];
     B=[0;0;1];
     C=[1 0 center_z/g];
     D=0;
-    E_d=[sample_time;1;0];              %å¤–ä¹±è¡Œåˆ—
-    sys=ss(A,B,C,D);                    %çŠ¶æ…‹ç©ºé–“ãƒ¢ãƒ‡ãƒ«ã®ä½œæˆ
-    sys_d=c2d(sys,sample_time);         %sample_timeã§é›¢æ•£åŒ–
-    [A_d,B_d,C_d,D_d]=ssdata(sys_d);    %çŠ¶æ…‹ç©ºé–“ãƒ¢ãƒ‡ãƒ«ã«ã‚¢ã‚¯ã‚»ã‚¹(ä¿‚æ•°è¡Œåˆ—ã®å–å¾—)
+    E_d=[sample_time;1;0];              %ŠO—s—ñ
+    sys=ss(A,B,C,D);                    %ó‘Ô‹óŠÔƒ‚ƒfƒ‹‚Ìì¬
+    sys_d=c2d(sys,sample_time);         %sample_time‚Å—£U‰»
+    [A_d,B_d,C_d,D_d]=ssdata(sys_d);    %ó‘Ô‹óŠÔƒ‚ƒfƒ‹‚ÉƒAƒNƒZƒX(ŒW”s—ñ‚Ìæ“¾)
 
-    %ã‚¨ãƒ©ãƒ¼ã‚·ã‚¹ãƒ†ãƒ ã®ä¿‚æ•°è¡Œåˆ—
+    %ƒGƒ‰[ƒVƒXƒeƒ€‚ÌŒW”s—ñ
     ZERO=[0;0;0];
     phi=[1 -C_d*A_d;ZERO A_d];
     G=[-C_d*B_d;B_d];
     GR=[1;ZERO];
-    G_d=[-C_d*E_d;E_d];
+    G_d=[-C_d*E_d;E_d];                 %ŠO——\Œ©§Œä‚Ég—p(•àsƒpƒ^[ƒ“¶¬‚É‚Íg—p‚µ‚È‚¢)
 
-    Q=zeros(4,4);   %é›¶è¡Œåˆ—
-    Q(1)=1e+8;      %é‡ã¿ä¿‚æ•°(ZMPãŒç†æƒ³ç³»ã«è¿‘ã¥ãã®ã¯1e+8)
-    H=1;            %é‡ã¿ä¿‚æ•°
+    Q=zeros(4,4);   %—ës—ñ
+    Q(1)=1e+8;      %d‚İŒW”(ZMP‚ª—‘zŒn‚É‹ß‚Ã‚­‚Ì‚Í1e+8)
+    H=1;            %d‚İŒW”
 
-    %ãƒªã‚«ãƒƒãƒæ–¹ç¨‹å¼ã®å®‰å®šè§£ã¨ã‚²ã‚¤ãƒ³Kã‚’æ±‚ã‚ã‚‹
+    %ƒŠƒJƒbƒ`•û’ö®‚ÌˆÀ’è‰ğ‚ÆƒQƒCƒ“K‚ğ‹‚ß‚é
     [K,P]=dlqr(phi,G,Q,H);
     K=-(H+G'*P*G)^(-1)*G'*P*phi;
 
     xi = (eye(4,4)-G*(H+G'*P*G)^(-1)*G'*P)*phi;
     
-    %åˆæœŸå€¤
-    x = [0; 0; 0];  %é‡å¿ƒx
-    y = [0; 0; 0];  %é‡å¿ƒy
-    xp = x;
-    yp = x;
+    %‰Šú’l
+%     x = [0; 0; 0];  %dSx
+%     y = [0; 0; 0];  %dSy
+%     xp = x;
+%     yp = y;
     save('data/PreviewControl_Table');
 end
