@@ -37,6 +37,8 @@ walk_cmd(READY);
 %----Walk Command Transimit----
 %------------------------------
 disp('Walk command transmit.');
+% RSMove(KneeR_P,0.000000);
+% pause(0);
 walk_cmd(STEP);
 %------------------------------
 

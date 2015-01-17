@@ -5,7 +5,10 @@
 %|-@author  Ryu Yamamoto           |
 %|---------------------------------|
 function walk_cmd(walk_patern)
+
+    %Load Mat files
     load('data/Motion');
+    load('data/walk_paramter_table.mat');
     
     switch walk_patern
         case STRAIGHT   %Straight  
@@ -21,7 +24,8 @@ function walk_cmd(walk_patern)
             Servo_OutPut(ready_ang_lower,ready_ang_upper,0.05);
             pause(2);
         case STEP       %Step
-            zmp_p = [0 0 0;0.5 0 44 ;1 0 -44;1.5 0 44;2 0 -44;2.5 0 44;3 0 -44;3.5 0 44;4 0 0;100 0 0];   %Goal Foot Position
+            %Target ZMP Trajectory[time,x,y,z_right,z_left]
+            zmp_p = [ 0 0 0 20 20 ; 0.5 0 40 20 20 ; 0.75 0 40 up_leg_length 20 ; 1 0 -40 20 20 ; 1.25 0 -40 20 up_leg_length ; 1.5 0 40 20 20 ; 1.75 0 40 up_leg_length 20 ; 2 0 -40 20 20 ; 2.25 0 -40 20 up_leg_length ; 2.5 0 40 20 20 ; 2.75 0 40 up_leg_length 20 ; 3 0 -40 20 20 ; 3.25 0 -40 20 up_leg_length ; 3.5 0 40 20 20 ; 3.75 0 40 up_leg_length 20 ; 4 0 0 20 20 ; 100 0 0 20 20];
             motion_seq(zmp_p);
     end
 end

@@ -1,5 +1,5 @@
 %Move Servo Motor Function
-%引数     ServoID:サーボのID(あまり関係ない？) Angle:角度(Degree) Vel:角速度(段階で分ける)
+%引数     ServoID:サーボのID(あまり関係ない？) Angle:角度(Degree)
 %戻り値   無し 
 function RSMove(ServoID,Angle)
 

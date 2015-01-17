@@ -23,8 +23,8 @@ function [cog_x,cog_y,output_zmp_x,output_zmp_y] = calc_preview_control(foot_p_x
     %Loop Start
     for tt = t
         count = count + 1;
-        px = C_d * x;           %Output ZMP(x)
-        py = C_d * y;           %Output ZMP(y)
+        px = C_d * x;               %Output ZMP(x)
+        py = C_d * y;               %Output ZMP(y)
         ex = foot_p_x(count) - px;  %Eroor between the target ZMP(x)
         ey = foot_p_y(count) - py;  %Eroor between the target ZMP(y)
         X = [ex ; x - xp];

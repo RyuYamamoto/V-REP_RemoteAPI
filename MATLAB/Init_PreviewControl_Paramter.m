@@ -2,7 +2,7 @@ function Init_PreviewControl_Paramter()
     pc_time=1;          %予見幅
     calc_time=10;        %歩行パターンの生成時間
     sample_time=0.01;   %サンプリングタイム
-    center_z=270;      %重心位置(z軸)(Acceliteは0.27m)
+    center_z=300;      %重心位置(z軸)(Acceliteは0.27m)
     g=-9810;            %重力加速度
 
     %システムの係数行列
