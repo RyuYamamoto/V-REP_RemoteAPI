@@ -1,9 +1,9 @@
-%|----------------------------------------|
-%|-@file    cal_int_kine.m                |
-%|-@brief   Calculation Invet Kinematics  |
-%|-@date    2015.1.23                     |
-%|-@author  Ryu Yamamoto                  |
-%|----------------------------------------|
+%|--------------------------------------------------|
+%|-@file    cal_int_kine_zmp.m                      |
+%|-@brief   Calculation Invet Kinematics  using ZMP |
+%|-@date    2015.1.23                               |
+%|-@author  Ryu Yamamoto                            |
+%|--------------------------------------------------|
 function Target_Angle = cal_inv_kine_zmp(output_zmp_x,output_zmp_y)
 
     %Load Mat files
