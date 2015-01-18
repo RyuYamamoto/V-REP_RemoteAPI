@@ -6,7 +6,7 @@
 %|---------------------------------------|
 function [cog_x,cog_y,output_zmp_x,output_zmp_y] = calc_preview_control(foot_p_x,foot_p_y)
     load('data/PreviewControl_Table');
-    load('data/walk_paramter_table');
+    load('data/walk_parameter_table');
     
     x = [0;0;0];
     y = [0;0;0];

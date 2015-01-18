@@ -8,7 +8,7 @@ function Target_Angle = cal_inv_kine_zmp(output_zmp_x,output_zmp_y,pre_foot_z_ri
 
     %Load Mat files
     load('data/ServoID');
-    load('data/walk_paramter_table.mat');
+    load('data/walk_parameter_table.mat');
     
     %Link paramter
     L0  = 41;

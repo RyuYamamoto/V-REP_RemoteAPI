@@ -6,7 +6,7 @@
 %|-----------------------------|
 function [Preview_Foot_x , Preview_Foot_y ,Preview_Foot_z_right , Preview_Foot_z_left] = create_foot_p(foot_point)
     load('data/PreviewControl_Table');
-    load('data/walk_paramter_table');
+    load('data/walk_parameter_table');
     
     i = 1;
     n = 1;

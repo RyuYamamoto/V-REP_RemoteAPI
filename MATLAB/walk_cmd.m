@@ -8,7 +8,7 @@ function walk_cmd(walk_patern)
 
     %Load Mat files
     load('data/Motion');
-    load('data/walk_paramter_table.mat');
+    load('data/walk_parameter_table.mat');
     
     switch walk_patern
         case STRAIGHT   %Straight  
@@ -18,14 +18,49 @@ function walk_cmd(walk_patern)
             Servo_OutPut(straight_ang_lower,straight_ang_upper,0.05);
             pause(2);
         case READY      %Ready  
-            ready_pos = [0 0 20 ; 0 0 20];
-            ready_ang_upper = [10 -10];
+            ready_pos = [0 0 offset ; 0 0 offset];
+            ready_ang_upper = [ArmR ArmL];
             ready_ang_lower = Cal_Inv_Kine(ready_pos);
             Servo_OutPut(ready_ang_lower,ready_ang_upper,0.05);
             pause(2);
         case STEP       %Step
-            %Target ZMP Trajectory[time,x,y,z_right,z_left]
-            zmp_p = [ 0 0 0 20 20 ; 0.5 0 40 20 20 ; 0.75 0 40 up_leg_length 20 ; 1 0 -40 20 20 ; 1.25 0 -40 20 up_leg_length ; 1.5 0 40 20 20 ; 1.75 0 40 up_leg_length 20 ; 2 0 -40 20 20 ; 2.25 0 -40 20 up_leg_length ; 2.5 0 40 20 20 ; 2.75 0 40 up_leg_length 20 ; 3 0 -40 20 20 ; 3.25 0 -40 20 up_leg_length ; 3.5 0 40 20 20 ; 3.75 0 40 up_leg_length 20 ; 4 0 0 20 20 ; 100 0 0 20 20];
+            zmp_p = [ 0 0 0 offset offset ;
+                      0.5 0 max_zmp_y 20 20 ;
+                      0.75 0 max_zmp_y up_leg_length+offset offset ; 
+                      1 0 min_zmp_y offset offset ;
+                      1.25 0 min_zmp_y offset up_leg_length+offset ;
+                      1.5 0 max_zmp_y offset offset ;
+                      1.75 0 max_zmp_y up_leg_length+offset offset ;
+                      2 0 min_zmp_y offset offset ;
+                      2.25 0 min_zmp_y offset up_leg_length+offset ;
+                      2.5 0 max_zmp_y offset offset ;
+                      2.75 0 max_zmp_y up_leg_length+offset offset ;
+                      3 0 min_zmp_y offset offset ;
+                      3.25 0 min_zmp_y offset up_leg_length+offset ; 
+                      3.5 0 max_zmp_y offset offset ; 
+                      3.75 0 max_zmp_y up_leg_length+offset offset ;
+                      4 0 min_zmp_y offset offset ;
+                      4.25 0 min_zmp_y offset up_leg_length+offset ;
+                      4.5 0 max_zmp_y offset offset ;
+                      4.75 0 max_zmp_y offset+up_leg_length offset ; 
+                      5 0 0 offset offset ; 100 0 0 offset offset];
+%             zmp_p = [ 0 0 0 offset offset ;
+%                       0.5 0 max_zmp_y up_leg_length+offset offset ;
+%                       0.75 0 max_zmp_y up_leg_length+offset offset ;
+%                       1 0 min_zmp_y offset up_leg_length+offset ;
+%                       1.25 0 min_zmp_y offset up_leg_length+offset ;
+%                       1.5 0 max_zmp_y up_leg_length+offset offset ;
+%                       1.75 0 max_zmp_y up_leg_length+offset offset ;
+%                       2 0 min_zmp_y offset up_leg_length+offset ;
+%                       2.25 0 min_zmp_y offset up_leg_length+offset ;
+%                       2.5 0 max_zmp_y up_leg_length+offset offset ;
+%                       2.75 0 max_zmp_y up_leg_length+offset offset ;
+%                       3 0 min_zmp_y offset up_leg_length+offset ;
+%                       3.25 0 min_zmp_y offset up_leg_length+offset ;
+%                       3.5 0 max_zmp_y up_leg_length+offset offset ;
+%                       3.75 0 max_zmp_y up_leg_length+offset offset ;
+%                       4 0 0 offset offset ;
+%                       100 0 0 offset offset];
             motion_seq(zmp_p);
     end
 end

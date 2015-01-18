@@ -7,7 +7,7 @@
 function [cog_angle] = cal_inv_kine_cog(cog_x,cog_y)
 
     %Load Mat Files
-    load('data/walk_paramter_table');
+    load('data/walk_parameter_table');
     
     %Link Parameter
     L0  = 41;

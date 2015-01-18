@@ -8,7 +8,7 @@ function servo_cntr_func(cog_x,cog_y,output_zmp_x,output_zmp_y,pre_foot_z_right,
 
     %Load Mat Files
     load('data/ServoID.mat');
-    load('data/walk_paramter_table');
+    load('data/walk_parameter_table');
     load('data/PreviewControl_Table.mat');
     
     i=1;
@@ -33,6 +33,6 @@ function servo_cntr_func(cog_x,cog_y,output_zmp_x,output_zmp_y,pre_foot_z_right,
         vrep.simxPauseCommunication(clientID,0);
     
         i=i+1;
-        pause(0.01);     %wait
+        pause(period);     %wait
     end
 end
