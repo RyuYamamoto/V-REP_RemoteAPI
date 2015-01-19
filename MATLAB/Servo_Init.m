@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 %Initialize Servo Motor Function(Set Torque and Get Servo Angle Value)
 %引数     torque:サーボの出力トルク　
 %戻り値   無し 
@@ -6,6 +7,19 @@ function Servo_Init(torque)
     load('data/ServoID');            %ワークスペースの読み込み
     
     %トルクの設定
+=======
+%|------------------------------------|
+%|-@file    Servo_Init.m              |
+%|-@brief   Initializing Servo Motor  |
+%|-@date    2015.1.23                 |
+%|-@author  Ryu Yamamoto              |
+%|------------------------------------|
+function Servo_Init(torque)
+%     vrep=remApi('remoteApi');   %Load DLL file
+    load('data/ServoID');         %Load Workspace
+    
+    %Set Torque
+>>>>>>> PreviewControl
     vrep.simxSetJointForce(clientID,119,torque,vrep.simx_opmode_oneshot);
     vrep.simxSetJointForce(clientID,107,torque,vrep.simx_opmode_oneshot);
     vrep.simxSetJointForce(clientID,110,torque,vrep.simx_opmode_oneshot);
@@ -24,7 +38,11 @@ function Servo_Init(torque)
     vrep.simxSetJointForce(clientID,94,torque,vrep.simx_opmode_oneshot);
     vrep.simxSetJointForce(clientID,97,torque,vrep.simx_opmode_oneshot);
     
+<<<<<<< HEAD
     %関節角度の初回取得(これをやらないと正確に角度を取得できない)
+=======
+    %Get Joint angle
+>>>>>>> PreviewControl
     vrep.simxGetJointPosition(clientID,119,vrep.simx_opmode_streaming);
     vrep.simxGetJointPosition(clientID,107,vrep.simx_opmode_streaming);
     vrep.simxGetJointPosition(clientID,110,vrep.simx_opmode_streaming);

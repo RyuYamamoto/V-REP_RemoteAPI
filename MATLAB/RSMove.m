@@ -1,5 +1,9 @@
 %Move Servo Motor Function
+<<<<<<< HEAD
 %ˆø”     ServoID:ƒT[ƒ{‚ÌID(‚ ‚Ü‚èŠÖŒW‚È‚¢H) Angle:Šp“x(Degree) Vel:Šp‘¬“x(’iŠK‚Å•ª‚¯‚é)
+=======
+%ˆø”     ServoID:ƒT[ƒ{‚ÌID(‚ ‚Ü‚èŠÖŒW‚È‚¢H) Angle:Šp“x(Degree)
+>>>>>>> PreviewControl
 %–ß‚è’l   –³‚µ 
 function RSMove(ServoID,Angle)
 
