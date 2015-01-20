@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-function Init_Walk_Parameter()
-    period=0.01;        %•àsŒvŽZŽüŠú
-    lift_leg_time = 0.5; %—V‹r‚ð¶¬‚·‚éŽžŠÔ
-    up_leg_length = 45; %‘«ã‚°—Ê
-    z_leg_counter = 0;
-    save('data/walk_paramter_table');
-=======
 %|---------------------------------------------|
 %|-@file    Init_Walk_Parameter.m              |
 %|-@brief   Initializing Parameter of Walking  |
@@ -25,5 +17,4 @@ function Init_Walk_Parameter()
     ArmL = -10;             %Offset ANgle of Left Arm
     
     save('data/walk_parameter_table');
->>>>>>> PreviewControl
 end
