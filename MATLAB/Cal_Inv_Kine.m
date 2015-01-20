@@ -1,16 +1,12 @@
 %Calulation InvertKinematics function
-%ˆø”      target:–Ú•W’lxyz‚Ì”z—ñ clientID:
-%–ß‚è’l    d1:•Gƒsƒbƒ` d2:‘«ñƒsƒbƒ` d3:ŒÒƒ[ƒ‹ d4:‘«ñƒ[ƒ‹ d5:ŒÒƒˆ[
-%”z—ñ‚É‚µ‚Ä•Ô‚·
-<<<<<<< HEAD
-function Target_Angle = cal_inv_kine(target_position)
-=======
+%å¼•æ•°      target:ç›®æ¨™å€¤xyzã®é…åˆ— clientID:
+%æˆ»ã‚Šå€¤    d1:è†ãƒ”ãƒƒãƒ d2:è¶³é¦–ãƒ”ãƒƒãƒ d3:è‚¡ãƒ­ãƒ¼ãƒ« d4:è¶³é¦–ãƒ­ãƒ¼ãƒ« d5:è‚¡ãƒ¨ãƒ¼
+%é…åˆ—ã«ã—ã¦è¿”ã™
 function Target_Angle = Cal_Inv_Kine(target_position)
->>>>>>> PreviewControl
     load('data/ServoID');
     
-    %ƒŠƒ“ƒNƒpƒ‰ƒ[ƒ^
-    %ƒsƒbƒ`²
+    %ãƒªãƒ³ã‚¯ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
+    %ãƒ”ãƒƒãƒè»¸
     L0  = 41;
     L1  = 105;
     L12 = 41;
@@ -19,30 +15,30 @@ function Target_Angle = Cal_Inv_Kine(target_position)
     
     L   = L0 + L1 + L12 + L2 + L3;
     
-    %‹t‰^“®ŠwŒvZ
-    %‰E‘«
+    %é€†é‹å‹•å­¦è¨ˆç®—
+    %å³è¶³
     w1 = atan2(target_position(1,1),L-target_position(1,3)-L3-L0);
     w2 = sqrt(target_position(1,1)^2+target_position(1,2)^2+(L-target_position(1,3)-L3-L0)^2);
     w3 = acos((w2-L12)/(2*L1));
     w4 = atan(target_position(1,2)/(L-target_position(1,3)-L3-L0));
     
-    d1 = -1 * (w1+w3) * 180 / 3.14;    %•Gƒsƒbƒ`
-    d2 = -1 * (w1-w3) * 180 / 3.14;    %‘«ñƒsƒbƒ`
-    d3 = w4 * 180 / 3.14;                            %ŒÒƒ[ƒ‹
-    d4 = w4 * 180 / 3.14;                            %‘«ñƒ[ƒ‹
-    d5 = 0;                            %ŒÒƒˆ[
+    d1 = -1 * (w1+w3) * 180 / 3.14;    %è†ãƒ”ãƒƒãƒ
+    d2 = -1 * (w1-w3) * 180 / 3.14;    %è¶³é¦–ãƒ”ãƒƒãƒ
+    d3 = w4 * 180 / 3.14;                            %è‚¡ãƒ­ãƒ¼ãƒ«
+    d4 = w4 * 180 / 3.14;                            %è¶³é¦–ãƒ­ãƒ¼ãƒ«
+    d5 = 0;                            %è‚¡ãƒ¨ãƒ¼
     
-    %¶‘«
+    %å·¦è¶³
     w5 = atan2(target_position(2,1),L-target_position(2,3)-L3-L0);
     w6 = sqrt(target_position(2,1)^2+target_position(2,2)^2+(L-target_position(2,3)-L3-L0)^2);
     w7 = acos((w6-L12)/(2*L1));
     w8 = atan(target_position(2,2)/(L-target_position(2,3)-L3-L0));
     
-    d6 = (w5+w7) * 180 / 3.14;         %•Gƒsƒbƒ`
-    d7 = (w5-w7) * 180 / 3.14;         %‘«ñƒsƒbƒ`
-    d8 = w8 * 180 / 3.14;                            %ŒÒƒ[ƒ‹
-    d9 = w8 * 180 / 3.14;                           %‘«ñƒ[ƒ‹
-    d10 = 0;                            %ŒÒƒˆ[
+    d6 = (w5+w7) * 180 / 3.14;         %è†ãƒ”ãƒƒãƒ
+    d7 = (w5-w7) * 180 / 3.14;         %è¶³é¦–ãƒ”ãƒƒãƒ
+    d8 = w8 * 180 / 3.14;                            %è‚¡ãƒ­ãƒ¼ãƒ«
+    d9 = w8 * 180 / 3.14;                           %è¶³é¦–ãƒ­ãƒ¼ãƒ«
+    d10 = 0;                            %è‚¡ãƒ¨ãƒ¼
     
     Target_Angle = [d1 d2 d3 d4 d5  d6 d7 d8 d9 d10];
 end
