@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 %Set ServoID
 close all;clc;
 clear all;
