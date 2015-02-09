@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-%Recive walk command
-%param  walk_patern:Motino Pattern
-%return no
-function walk_cmd(walk_patern)
-    load('data/Motion');
-=======
 %|---------------------------------|
 %|-@file    walk_cmd.m             |
 %|-@brief   Transmit Walk Command  |
@@ -16,7 +9,6 @@ function walk_cmd(walk_patern)
     %Load Mat files
     load('data/Motion');
     load('data/walk_parameter_table.mat');
->>>>>>> PreviewControl
     
     switch walk_patern
         case STRAIGHT   %Straight  
@@ -26,20 +18,15 @@ function walk_cmd(walk_patern)
             Servo_OutPut(straight_ang_lower,straight_ang_upper,0.05);
             pause(2);
         case READY      %Ready  
-<<<<<<< HEAD
             ready_pos = [0 0 20 ; 0 0 20];
             ready_ang_upper = [10 -10];
-=======
             ready_pos = [0 0 offset ; 0 0 offset];
             ready_ang_upper = [ArmR ArmL];
->>>>>>> PreviewControl
             ready_ang_lower = Cal_Inv_Kine(ready_pos);
             Servo_OutPut(ready_ang_lower,ready_ang_upper,0.05);
             pause(2);
         case STEP       %Step
-<<<<<<< HEAD
             zmp_p = [0 0 0;0.5 0 44 ;1 0 -44;1.5 0 44;2 0 -44;2.5 0 44;3 0 -44;3.5 0 44;4 0 0;100 0 0];   %Goal Foot Position
-=======
             zmp_p = [ 0 0 0 offset offset ;
                       0.5 0 max_zmp_y 20 20 ;
                       0.75 0 max_zmp_y up_leg_length+offset offset ; 
@@ -77,7 +64,6 @@ function walk_cmd(walk_patern)
 %                       3.75 0 max_zmp_y up_leg_length+offset offset ;
 %                       4 0 0 offset offset ;
 %                       100 0 0 offset offset];
->>>>>>> PreviewControl
             motion_seq(zmp_p);
     end
 end
