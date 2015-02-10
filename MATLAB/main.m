@@ -15,7 +15,6 @@ vrep=remApi('remoteApi');
 vrep.simxFinish(-1);
 clientID=vrep.simxStart('127.0.0.1',19999,true,true,5000,5);
 pause(1);
-[errorCode,pingTime]=vrep.simxGetPingTime(clientID);
 %-----------------------------------------------------------
 
 %----------------------
@@ -32,16 +31,10 @@ Servo_Init(480);
 pause(2);
 robot_status_init();
 pause(2);
-walk_cmd(READY);
 walk_cmd(STRAIGHT);
 walk_cmd(READY);
 %---------------------------
 
-disp('Walk command transmit.');
-walk_cmd(STEP);
-
-%----------------------------
-%--------Program End.--------
 %------------------------------
 %----Walk Command Transimit----
 %------------------------------
@@ -52,7 +45,6 @@ walk_cmd(STEP);
 %----------------------------
 %--------Program End.--------
 %----------------------------
-fprintf('%f\n',pingTime);
 vrep.simxFinish(clientID);
 vrep.delete();
 %----------------------------

@@ -16,7 +16,7 @@ function servo_cntr_func(cog_x,cog_y,output_zmp_x,output_zmp_y,pre_foot_z_right,
         %Calculation Invert Kinematics
         [cog_angle] = cal_inv_kine_cog(cog_x(i),cog_y(i));
         [zmp_angle] = cal_inv_kine_zmp(output_zmp_x(i),output_zmp_y(i),pre_foot_z_right(i),pre_foot_z_left(i));
-        fprintf('%f\n',zmp_angle(1));
+        
         %Servo Control Start
         vrep.simxPauseCommunication(clientID,1);
         
