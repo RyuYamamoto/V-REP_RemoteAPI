@@ -1,11 +1,14 @@
-%Initialize Servo Motor Function(Set Torque and Get Servo Angle Value)
-%ˆø”     torque:ƒT[ƒ{‚Ìo—Íƒgƒ‹ƒN@
-%–ß‚è’l   –³‚µ 
+%|------------------------------------|
+%|-@file    Servo_Init.m              |
+%|-@brief   Initializing Servo Motor  |
+%|-@date    2015.1.23                 |
+%|-@author  Ryu Yamamoto              |
+%|------------------------------------|
 function Servo_Init(torque)
-%     vrep=remApi('remoteApi');   %DLLƒtƒ@ƒCƒ‹‚Ì“Ç‚İ‚İ
-    load('data/ServoID');            %ƒ[ƒNƒXƒy[ƒX‚Ì“Ç‚İ‚İ
+%     vrep=remApi('remoteApi');   %Load DLL file
+    load('data/ServoID');         %Load Workspace
     
-    %ƒgƒ‹ƒN‚Ìİ’è
+    %Set Torque
     vrep.simxSetJointForce(clientID,119,torque,vrep.simx_opmode_oneshot);
     vrep.simxSetJointForce(clientID,107,torque,vrep.simx_opmode_oneshot);
     vrep.simxSetJointForce(clientID,110,torque,vrep.simx_opmode_oneshot);
@@ -24,7 +27,8 @@ function Servo_Init(torque)
     vrep.simxSetJointForce(clientID,94,torque,vrep.simx_opmode_oneshot);
     vrep.simxSetJointForce(clientID,97,torque,vrep.simx_opmode_oneshot);
     
-    %ŠÖßŠp“x‚Ì‰‰ñæ“¾(‚±‚ê‚ğ‚â‚ç‚È‚¢‚Æ³Šm‚ÉŠp“x‚ğæ“¾‚Å‚«‚È‚¢)
+    %é–¢ç¯€è§’åº¦ã®åˆå›å–å¾—(ã“ã‚Œã‚’ã‚„ã‚‰ãªã„ã¨æ­£ç¢ºã«è§’åº¦ã‚’å–å¾—ã§ããªã„)
+    %Get Joint angle
     vrep.simxGetJointPosition(clientID,119,vrep.simx_opmode_streaming);
     vrep.simxGetJointPosition(clientID,107,vrep.simx_opmode_streaming);
     vrep.simxGetJointPosition(clientID,110,vrep.simx_opmode_streaming);
@@ -42,5 +46,4 @@ function Servo_Init(torque)
     vrep.simxGetJointPosition(clientID,88,vrep.simx_opmode_streaming);
     vrep.simxGetJointPosition(clientID,94,vrep.simx_opmode_streaming);
     vrep.simxGetJointPosition(clientID,97,vrep.simx_opmode_streaming);
-    
 end
