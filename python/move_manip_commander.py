@@ -41,10 +41,10 @@ def move_hand(x,y,z,object_handle):
 		time.sleep(1.0)
 
 def main():
-		x = 0.02
-		y = 0.02
-		z = 0
-		
+		x = input('x:')
+		y = input('y:')
+		z = input('z:')
+
 		object_num = get_object_handle('redundantRob_manipSphere',0)
 		robot_status_init(object_num)
 		move_hand(x,y,z,object_num)
