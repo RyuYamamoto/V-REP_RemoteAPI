@@ -1,4 +1,4 @@
-CFLAGS = -I../remoteApi -I../include -DNON_MATLAB_PARSING -DMAX_EXT_API_CONNECTIONS=255
+CFLAGS = -I../../remoteApi -I../../include -DNON_MATLAB_PARSING -DMAX_EXT_API_CONNECTIONS=255
 
 OS = $(shell uname -s)
 ifeq ($(OS), Linux)
